@@ -1,0 +1,123 @@
+<h3 class="form-title">Login</h3>
+
+<form method="POST" action="" class="login-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <p><label for="username">Username:</label></p>
+        <p><input type="text" id="username" name="username" required></p>
+        
+        <p><label for="password">Password:</label></p>
+        <p><input type="password" id="password" name="password" required></p>
+    </div>
+
+    <button type="submit" name="Login" class="submit-btn">Login</button>         
+
+    {% for message in messages %}
+    <p class="{{ message.tags }}">{{ message }}</p>
+{% endfor %}
+
+    <div class="signup-link">
+        <p>Don't have an account? <a href="/register/" class="signup-btn">Sign Up</a></p>
+    </div>
+</form>
+
+<style>
+    /* Body styles to center everything */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+
+    /* Form container */
+    .login-form {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Title styling */
+    .form-title {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Form elements styling */
+    .form-group p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Input fields */
+    .login-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .login-form input:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+    /* Submit button styling */
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Sign-up link styling */
+    .signup-link {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .signup-btn {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .signup-btn:hover {
+        text-decoration: underline;
+    }
+
+    /* Form responsiveness */
+    @media (max-width: 600px) {
+        .login-form {
+            padding: 15px;
+        }
+
+        .form-title {
+            font-size: 20px;
+        }
+
+        .submit-btn {
+            padding: 10px;
+        }
+    }
+</style>
